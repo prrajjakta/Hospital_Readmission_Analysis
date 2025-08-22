@@ -1,0 +1,1526 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.0514.2217                               -->
+<workbook original-version='18.1' source-build='2025.2.0 (20252.25.0514.2217)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='admissions.csv (Multiple Connections)' inline='true' name='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='admissions' name='textscan.1rbd5zo18iytkq14946v10lw21wx'>
+            <connection class='textscan' directory='C:/Projects/Hospital_Readmission/data/raw' filename='admissions.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='patients' name='textscan.012asf81mt2lxs154kdke1wxdfbx'>
+            <connection class='textscan' directory='C:/Projects/Hospital_Readmission/data/raw' filename='patients.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.1rbd5zo18iytkq14946v10lw21wx' name='admissions.csv' table='[admissions#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='admission_id' ordinal='0' />
+              <column datatype='string' name='patient_id' ordinal='1' />
+              <column datatype='date' name='admission_date' ordinal='2' />
+              <column datatype='date' name='discharge_date' ordinal='3' />
+              <column datatype='string' name='primary_diagnosis' ordinal='4' />
+              <column datatype='string' name='discharge_disposition' ordinal='5' />
+              <column datatype='string' name='hospital_service' ordinal='6' />
+              <column datatype='integer' name='length_of_stay' ordinal='7' />
+              <column datatype='integer' name='total_charges' ordinal='8' />
+              <column datatype='integer' name='is_30day_readmission' ordinal='9' />
+            </columns>
+          </relation>
+          <relation connection='textscan.012asf81mt2lxs154kdke1wxdfbx' name='diagnoses.csv' table='[diagnoses#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='diagnosis_code' ordinal='0' />
+              <column datatype='string' name='diagnosis_name' ordinal='1' />
+              <column datatype='string' name='severity_level' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='textscan.012asf81mt2lxs154kdke1wxdfbx' name='patients.csv' table='[patients#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='patient_id' ordinal='0' />
+              <column datatype='string' name='first_name' ordinal='1' />
+              <column datatype='string' name='last_name' ordinal='2' />
+              <column datatype='date' name='date_of_birth' ordinal='3' />
+              <column datatype='string' name='gender' ordinal='4' />
+              <column datatype='string' name='insurance_type' ordinal='5' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[admission_date]' value='[admissions.csv].[admission_date]' />
+          <map key='[admission_id]' value='[admissions.csv].[admission_id]' />
+          <map key='[date_of_birth]' value='[patients.csv].[date_of_birth]' />
+          <map key='[diagnosis_code]' value='[diagnoses.csv].[diagnosis_code]' />
+          <map key='[diagnosis_name]' value='[diagnoses.csv].[diagnosis_name]' />
+          <map key='[discharge_date]' value='[admissions.csv].[discharge_date]' />
+          <map key='[discharge_disposition]' value='[admissions.csv].[discharge_disposition]' />
+          <map key='[first_name]' value='[patients.csv].[first_name]' />
+          <map key='[gender]' value='[patients.csv].[gender]' />
+          <map key='[hospital_service]' value='[admissions.csv].[hospital_service]' />
+          <map key='[insurance_type]' value='[patients.csv].[insurance_type]' />
+          <map key='[is_30day_readmission]' value='[admissions.csv].[is_30day_readmission]' />
+          <map key='[last_name]' value='[patients.csv].[last_name]' />
+          <map key='[length_of_stay]' value='[admissions.csv].[length_of_stay]' />
+          <map key='[patient_id (patients.csv)]' value='[patients.csv].[patient_id]' />
+          <map key='[patient_id]' value='[admissions.csv].[patient_id]' />
+          <map key='[primary_diagnosis]' value='[admissions.csv].[primary_diagnosis]' />
+          <map key='[severity_level]' value='[diagnoses.csv].[severity_level]' />
+          <map key='[total_charges]' value='[admissions.csv].[total_charges]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[diagnoses.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[patients.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>admission_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[admission_id]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>admission_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>patient_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[patient_id]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>patient_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>admission_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[admission_date]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>admission_date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>discharge_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[discharge_date]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>discharge_date</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>primary_diagnosis</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[primary_diagnosis]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>primary_diagnosis</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>discharge_disposition</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[discharge_disposition]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>discharge_disposition</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hospital_service</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[hospital_service]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>hospital_service</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>length_of_stay</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[length_of_stay]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>length_of_stay</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_charges</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_charges]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>total_charges</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_30day_readmission</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_30day_readmission]</local-name>
+            <parent-name>[admissions.csv]</parent-name>
+            <remote-alias>is_30day_readmission</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>diagnosis_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[diagnosis_code]</local-name>
+            <parent-name>[diagnoses.csv]</parent-name>
+            <remote-alias>diagnosis_code</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>diagnosis_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[diagnosis_name]</local-name>
+            <parent-name>[diagnoses.csv]</parent-name>
+            <remote-alias>diagnosis_name</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>severity_level</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[severity_level]</local-name>
+            <parent-name>[diagnoses.csv]</parent-name>
+            <remote-alias>severity_level</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>patient_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[patient_id (patients.csv)]</local-name>
+            <parent-name>[patients.csv]</parent-name>
+            <remote-alias>patient_id</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>first_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[first_name]</local-name>
+            <parent-name>[patients.csv]</parent-name>
+            <remote-alias>first_name</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>last_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[last_name]</local-name>
+            <parent-name>[patients.csv]</parent-name>
+            <remote-alias>last_name</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_of_birth</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_of_birth]</local-name>
+            <parent-name>[patients.csv]</parent-name>
+            <remote-alias>date_of_birth</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[patients.csv]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>insurance_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[insurance_type]</local-name>
+            <parent-name>[patients.csv]</parent-name>
+            <remote-alias>insurance_type</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Readmission Target' datatype='real' name='[Calculation_1335880284587589632]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='0.15' />
+      </column>
+      <column caption='Patient Admissions' datatype='integer' name='[Calculation_1335880284625801217]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{FIXED [patient_id]: COUNTD([admission_id])}' />
+      </column>
+      <column caption='Patient Readmissions' datatype='integer' name='[Calculation_1335880284626161666]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{FIXED [patient_id]: SUM([is_30day_readmission])}' />
+      </column>
+      <column caption='Risk Category' datatype='string' name='[Calculation_1335880284626284547]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1335880284625801217] &gt;= 4 THEN &quot;High Risk&quot;&#13;&#10;ELSEIF [Calculation_1335880284625801217] &gt;= 2 THEN &quot;Medium Risk&quot;&#13;&#10;ELSE &quot;Low Risk&quot;&#13;&#10;END' />
+      </column>
+      <column caption='admissions.csv' datatype='table' name='[__tableau_internal_object_id__].[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]' role='measure' type='quantitative' />
+      <column caption='diagnoses.csv' datatype='table' name='[__tableau_internal_object_id__].[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]' role='measure' type='quantitative' />
+      <column caption='patients.csv' datatype='table' name='[__tableau_internal_object_id__].[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]' role='measure' type='quantitative' />
+      <column caption='Admission Date' datatype='date' name='[admission_date]' role='dimension' type='ordinal' />
+      <column caption='Admission Id' datatype='string' name='[admission_id]' role='dimension' type='nominal' />
+      <column caption='Date Of Birth' datatype='date' name='[date_of_birth]' role='dimension' type='ordinal' />
+      <column caption='Diagnosis Code' datatype='string' name='[diagnosis_code]' role='dimension' type='nominal' />
+      <column caption='Diagnosis Name' datatype='string' name='[diagnosis_name]' role='dimension' type='nominal' />
+      <column caption='Discharge Date' datatype='date' name='[discharge_date]' role='dimension' type='ordinal' />
+      <column caption='Discharge Disposition' datatype='string' name='[discharge_disposition]' role='dimension' type='nominal' />
+      <column caption='First Name' datatype='string' name='[first_name]' role='dimension' type='nominal' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Hospital Service' datatype='string' name='[hospital_service]' role='dimension' type='nominal' />
+      <column caption='Insurance Type' datatype='string' name='[insurance_type]' role='dimension' type='nominal' />
+      <column caption='Is 30Day Readmission' datatype='integer' name='[is_30day_readmission]' role='measure' type='quantitative' />
+      <column caption='Last Name' datatype='string' name='[last_name]' role='dimension' type='nominal' />
+      <column caption='Length Of Stay' datatype='integer' name='[length_of_stay]' role='measure' type='quantitative' />
+      <column caption='Patient Id (Patients.Csv)' datatype='string' name='[patient_id (patients.csv)]' role='dimension' type='nominal' />
+      <column caption='Patient Id' datatype='string' name='[patient_id]' role='dimension' type='nominal' />
+      <column caption='Primary Diagnosis' datatype='string' name='[primary_diagnosis]' role='dimension' type='nominal' />
+      <column caption='Severity Level' datatype='string' name='[severity_level]' role='dimension' type='nominal' />
+      <column caption='Total Charges' datatype='integer' name='[total_charges]' role='measure' type='quantitative' />
+      <column-instance column='[Calculation_1335880284587589632]' derivation='Avg' name='[avg:Calculation_1335880284587589632:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[is_30day_readmission]' derivation='Avg' name='[avg:is_30day_readmission:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[insurance_type]' derivation='None' name='[none:insurance_type:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/padwa/AppData/Local/Temp/TableauTemp/#TableauTemp_0crfbqn19aqvvd1f8n99v1bubydz.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='08/22/2025 06:33:11 AM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='admissions.csv_6E768CA950BF4936A9A9DADD94010E81' table='[Extract].[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]' type='table' />
+            <relation name='diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF' table='[Extract].[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]' type='table' />
+            <relation name='patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF' table='[Extract].[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]' type='table' />
+          </relation>
+          <cols>
+            <map key='[admission_date]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[admission_date]' />
+            <map key='[admission_id]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[admission_id]' />
+            <map key='[date_of_birth]' value='[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF].[date_of_birth]' />
+            <map key='[diagnosis_code]' value='[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF].[diagnosis_code]' />
+            <map key='[diagnosis_name]' value='[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF].[diagnosis_name]' />
+            <map key='[discharge_date]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[discharge_date]' />
+            <map key='[discharge_disposition]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[discharge_disposition]' />
+            <map key='[first_name]' value='[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF].[first_name]' />
+            <map key='[gender]' value='[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF].[gender]' />
+            <map key='[hospital_service]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[hospital_service]' />
+            <map key='[insurance_type]' value='[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF].[insurance_type]' />
+            <map key='[is_30day_readmission]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[is_30day_readmission]' />
+            <map key='[last_name]' value='[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF].[last_name]' />
+            <map key='[length_of_stay]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[length_of_stay]' />
+            <map key='[patient_id (patients.csv)]' value='[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF].[patient_id]' />
+            <map key='[patient_id]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[patient_id]' />
+            <map key='[primary_diagnosis]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[primary_diagnosis]' />
+            <map key='[severity_level]' value='[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF].[severity_level]' />
+            <map key='[total_charges]' value='[admissions.csv_6E768CA950BF4936A9A9DADD94010E81].[total_charges]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>admission_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[admission_id]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>admission_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>admissions.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>198</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>patient_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[patient_id]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>patient_id</remote-alias>
+              <ordinal>1</ordinal>
+              <family>admissions.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>100</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>admission_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[admission_date]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>admission_date</remote-alias>
+              <ordinal>2</ordinal>
+              <family>admissions.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>195</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>discharge_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[discharge_date]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>discharge_date</remote-alias>
+              <ordinal>3</ordinal>
+              <family>admissions.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>196</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>primary_diagnosis</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[primary_diagnosis]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>primary_diagnosis</remote-alias>
+              <ordinal>4</ordinal>
+              <family>admissions.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>discharge_disposition</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[discharge_disposition]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>discharge_disposition</remote-alias>
+              <ordinal>5</ordinal>
+              <family>admissions.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>hospital_service</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[hospital_service]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>hospital_service</remote-alias>
+              <ordinal>6</ordinal>
+              <family>admissions.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>length_of_stay</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[length_of_stay]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>length_of_stay</remote-alias>
+              <ordinal>7</ordinal>
+              <family>admissions.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>total_charges</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[total_charges]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>total_charges</remote-alias>
+              <ordinal>8</ordinal>
+              <family>admissions.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>128</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>is_30day_readmission</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[is_30day_readmission]</local-name>
+              <parent-name>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</parent-name>
+              <remote-alias>is_30day_readmission</remote-alias>
+              <ordinal>9</ordinal>
+              <family>admissions.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>diagnosis_code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[diagnosis_code]</local-name>
+              <parent-name>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</parent-name>
+              <remote-alias>diagnosis_code</remote-alias>
+              <ordinal>10</ordinal>
+              <family>diagnoses.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>diagnosis_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[diagnosis_name]</local-name>
+              <parent-name>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</parent-name>
+              <remote-alias>diagnosis_name</remote-alias>
+              <ordinal>11</ordinal>
+              <family>diagnoses.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>severity_level</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[severity_level]</local-name>
+              <parent-name>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</parent-name>
+              <remote-alias>severity_level</remote-alias>
+              <ordinal>12</ordinal>
+              <family>diagnoses.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>patient_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[patient_id (patients.csv)]</local-name>
+              <parent-name>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</parent-name>
+              <remote-alias>patient_id</remote-alias>
+              <ordinal>13</ordinal>
+              <family>patients.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>100</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>first_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[first_name]</local-name>
+              <parent-name>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</parent-name>
+              <remote-alias>first_name</remote-alias>
+              <ordinal>14</ordinal>
+              <family>patients.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>96</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>last_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[last_name]</local-name>
+              <parent-name>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</parent-name>
+              <remote-alias>last_name</remote-alias>
+              <ordinal>15</ordinal>
+              <family>patients.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>97</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date_of_birth</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date_of_birth]</local-name>
+              <parent-name>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</parent-name>
+              <remote-alias>date_of_birth</remote-alias>
+              <ordinal>16</ordinal>
+              <family>patients.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>100</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>17</ordinal>
+              <family>patients.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>insurance_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[insurance_type]</local-name>
+              <parent-name>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</parent-name>
+              <remote-alias>insurance_type</remote-alias>
+              <ordinal>18</ordinal>
+              <family>patients.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:Calculation_1335880284587589632:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:insurance_type:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Medicaid&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Private&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Medicare&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='admissions.csv' id='admissions.csv_6E768CA950BF4936A9A9DADD94010E81'>
+            <properties context=''>
+              <relation connection='textscan.1rbd5zo18iytkq14946v10lw21wx' name='admissions.csv' table='[admissions#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='admission_id' ordinal='0' />
+                  <column datatype='string' name='patient_id' ordinal='1' />
+                  <column datatype='date' name='admission_date' ordinal='2' />
+                  <column datatype='date' name='discharge_date' ordinal='3' />
+                  <column datatype='string' name='primary_diagnosis' ordinal='4' />
+                  <column datatype='string' name='discharge_disposition' ordinal='5' />
+                  <column datatype='string' name='hospital_service' ordinal='6' />
+                  <column datatype='integer' name='length_of_stay' ordinal='7' />
+                  <column datatype='integer' name='total_charges' ordinal='8' />
+                  <column datatype='integer' name='is_30day_readmission' ordinal='9' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='admissions.csv_6E768CA950BF4936A9A9DADD94010E81' table='[Extract].[admissions.csv_6E768CA950BF4936A9A9DADD94010E81]' type='table' />
+            </properties>
+          </object>
+          <object caption='diagnoses.csv' id='diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF'>
+            <properties context=''>
+              <relation connection='textscan.012asf81mt2lxs154kdke1wxdfbx' name='diagnoses.csv' table='[diagnoses#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='diagnosis_code' ordinal='0' />
+                  <column datatype='string' name='diagnosis_name' ordinal='1' />
+                  <column datatype='string' name='severity_level' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF' table='[Extract].[diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF]' type='table' />
+            </properties>
+          </object>
+          <object caption='patients.csv' id='patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF'>
+            <properties context=''>
+              <relation connection='textscan.012asf81mt2lxs154kdke1wxdfbx' name='patients.csv' table='[patients#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='patient_id' ordinal='0' />
+                  <column datatype='string' name='first_name' ordinal='1' />
+                  <column datatype='string' name='last_name' ordinal='2' />
+                  <column datatype='date' name='date_of_birth' ordinal='3' />
+                  <column datatype='string' name='gender' ordinal='4' />
+                  <column datatype='string' name='insurance_type' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF' table='[Extract].[patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[primary_diagnosis]' />
+              <expression op='[diagnosis_name]' />
+            </expression>
+            <first-end-point object-id='admissions.csv_6E768CA950BF4936A9A9DADD94010E81' />
+            <second-end-point object-id='diagnoses.csv_2CF0AEA5F5204FD9ABDA3FFA76CC0CCF' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[patient_id]' />
+              <expression op='[patient_id (patients.csv)]' />
+            </expression>
+            <first-end-point object-id='admissions.csv_6E768CA950BF4936A9A9DADD94010E81' />
+            <second-end-point object-id='patients.csv_5B3B19E7547C4F249B6EB030F0F1C3FF' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v'>
+      <datasources>
+        <datasource caption='admissions.csv (Multiple Connections)' name='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v'>
+        <column-instance column='[primary_diagnosis]' derivation='None' name='[none:primary_diagnosis:nk]' pivot='key' type='nominal' />
+        <column caption='Primary Diagnosis' datatype='string' name='[primary_diagnosis]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]'>
+        <groupfilter function='level-members' level='[none:primary_diagnosis:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#d5e9ff'>30 DAY  READMISSION RATE TRENDS</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='admissions.csv (Multiple Connections)' name='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v'>
+            <column caption='Readmission Target' datatype='real' name='[Calculation_1335880284587589632]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='0.15' />
+            </column>
+            <column caption='Admission Date' datatype='date' name='[admission_date]' role='dimension' type='ordinal' />
+            <column caption='Admission Id' datatype='string' name='[admission_id]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1335880284587589632]' derivation='Avg' name='[avg:Calculation_1335880284587589632:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[is_30day_readmission]' derivation='Avg' name='[avg:is_30day_readmission:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[admission_id]' derivation='Count' name='[cnt:admission_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Is 30Day Readmission' datatype='integer' name='[is_30day_readmission]' role='measure' type='quantitative' />
+            <column-instance column='[admission_date]' derivation='Month' name='[mn:admission_date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[primary_diagnosis]' derivation='None' name='[none:primary_diagnosis:nk]' pivot='key' type='nominal' />
+            <column caption='Primary Diagnosis' datatype='string' name='[primary_diagnosis]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:Calculation_1335880284587589632:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:Calculation_1335880284587589632:qk]' scope='rows' value='false' />
+            <format attr='width' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' value='119' />
+            <format attr='width' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:Calculation_1335880284587589632:qk]' value='119' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+            <format attr='border-color' value='#1b1b1b' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+            <format attr='border-color' value='#1b1b1b' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#1b1b1b' />
+            <format attr='border-width' value='2' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#dfedeb' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#333333' />
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='stroke-color' id='refline0' value='#e700004b' />
+            <format attr='line-visibility' id='refline0' value='on' />
+            <format attr='line-pattern-only' id='refline0' value='dashed' />
+            <format attr='stroke-size' id='refline0' value='3' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='2' />
+            <format attr='stroke-color' scope='rows' value='#1b1b1b' />
+            <format attr='div-level' scope='rows' value='2' />
+            <format attr='stroke-size' scope='cols' value='2' />
+            <format attr='stroke-color' scope='cols' value='#1b1b1b' />
+            <format attr='div-level' scope='cols' value='0' />
+          </style-rule>
+          <style-rule element='title'>
+            <format attr='background-color' value='#898989' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' />
+              <color column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[:Measure Names]' />
+            </encodings>
+            <reference-line axis-column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label='15%' label-type='custom' scope='per-table' value='0.15' value-column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' z-order='1' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <lod column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' />
+              <color column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:Calculation_1335880284587589632:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' />
+              <color column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk] + [federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:Calculation_1335880284587589632:qk])</rows>
+        <cols>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[mn:admission_date:ok]</cols>
+      </table>
+      <simple-id uuid='{D9845FED-F7E1-4A8B-B419-C95CB95F5668}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#d5e9ff'>DIAGNOSIS ANALYSIS</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='admissions.csv (Multiple Connections)' name='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v'>
+            <column caption='Admission Id' datatype='string' name='[admission_id]' role='dimension' type='nominal' />
+            <column-instance column='[is_30day_readmission]' derivation='Avg' name='[avg:is_30day_readmission:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[admission_id]' derivation='Count' name='[cnt:admission_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Is 30Day Readmission' datatype='integer' name='[is_30day_readmission]' role='measure' type='quantitative' />
+            <column-instance column='[primary_diagnosis]' derivation='None' name='[none:primary_diagnosis:nk]' pivot='key' type='nominal' />
+            <column caption='Primary Diagnosis' datatype='string' name='[primary_diagnosis]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' included-values='in-range'>
+            <min>20</min>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]</column>
+            <column>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' value='p0.0%' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+            <format attr='border-color' value='#1b1b1b' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+            <format attr='border-color' value='#000000' />
+            <format attr='width' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]' value='111' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' value='p0.0%' />
+            <format attr='text-format' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' value='p0.0%' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' max='23' min='21' palette='blue_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+            <format attr='border-color' value='#000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#dfedeb' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#333333' />
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='stroke-size' id='refline0' value='3' />
+            <format attr='line-visibility' id='refline0' value='on' />
+            <format attr='line-pattern-only' id='refline0' value='dashed' />
+            <format attr='stroke-color' id='refline0' value='#e70000' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='2' />
+            <format attr='stroke-color' scope='rows' value='#000000' />
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='div-level' scope='rows' value='0' />
+            <format attr='stroke-size' scope='cols' value='2' />
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+            <format attr='stroke-color' scope='cols' value='#000000' />
+            <format attr='div-level' scope='cols' value='1' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='stroke-color' scope='cols' value='#1b1b1b' />
+          </style-rule>
+          <style-rule element='title'>
+            <format attr='background-color' value='#898989' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label='15%' label-type='custom' scope='per-table' value='0.15' value-column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]</rows>
+        <cols>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[avg:is_30day_readmission:qk]</cols>
+      </table>
+      <simple-id uuid='{A60B7DC6-0975-4E7C-A83E-A5E5EDF8FA74}' />
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#d5e9ff'>RISK SEGMENTATION</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='admissions.csv (Multiple Connections)' name='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v'>
+            <column caption='Patient Admissions' datatype='integer' name='[Calculation_1335880284625801217]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{FIXED [patient_id]: COUNTD([admission_id])}' />
+            </column>
+            <column caption='Patient Readmissions' datatype='integer' name='[Calculation_1335880284626161666]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{FIXED [patient_id]: SUM([is_30day_readmission])}' />
+            </column>
+            <column caption='Risk Category' datatype='string' name='[Calculation_1335880284626284547]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1335880284625801217] &gt;= 4 THEN &quot;High Risk&quot;&#13;&#10;ELSEIF [Calculation_1335880284625801217] &gt;= 2 THEN &quot;Medium Risk&quot;&#13;&#10;ELSE &quot;Low Risk&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Admission Id' datatype='string' name='[admission_id]' role='dimension' type='nominal' />
+            <column-instance column='[patient_id]' derivation='CountD' name='[ctd:patient_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Insurance Type' datatype='string' name='[insurance_type]' role='dimension' type='nominal' />
+            <column caption='Is 30Day Readmission' datatype='integer' name='[is_30day_readmission]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1335880284626284547]' derivation='None' name='[none:Calculation_1335880284626284547:nk]' pivot='key' type='nominal' />
+            <column-instance column='[insurance_type]' derivation='None' name='[none:insurance_type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[primary_diagnosis]' derivation='None' name='[none:primary_diagnosis:nk]' pivot='key' type='nominal' />
+            <column caption='Patient Id' datatype='string' name='[patient_id]' role='dimension' type='nominal' />
+            <column caption='Primary Diagnosis' datatype='string' name='[primary_diagnosis]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1335880284626161666]' derivation='Sum' name='[sum:Calculation_1335880284626161666:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:Calculation_1335880284626284547:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_1335880284626284547:nk]' />
+          </filter>
+          <slices>
+            <column>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:Calculation_1335880284626284547:nk]</column>
+            <column>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+            <format attr='border-color' value='#000000' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+            <format attr='border-color' value='#1b1b1b' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#000000' />
+            <format attr='border-width' value='2' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#dfedeb' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#333333' />
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='2' />
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-color' scope='rows' value='#000000' />
+            <format attr='div-level' scope='rows' value='1' />
+            <format attr='stroke-size' scope='cols' value='2' />
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+            <format attr='stroke-color' scope='cols' value='#1b1b1b' />
+            <format attr='div-level' scope='cols' value='0' />
+          </style-rule>
+          <style-rule element='title'>
+            <format attr='background-color' value='#898989' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:insurance_type:nk]' />
+              <lod column='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[ctd:patient_id:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[sum:Calculation_1335880284626161666:qk]</rows>
+        <cols>[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:Calculation_1335880284626284547:nk]</cols>
+      </table>
+      <simple-id uuid='{8DF286D5-0CBC-4E25-9B00-526D06451298}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1600' minheight='600' minwidth='1600' sizing-mode='range' />
+      <datasources>
+        <datasource caption='admissions.csv (Multiple Connections)' name='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1kqkrlk09gvj2y11hmyfy1hyiz6v'>
+        <column caption='Admission Id' datatype='string' name='[admission_id]' role='dimension' type='nominal' />
+        <column-instance column='[admission_id]' derivation='Count' name='[cnt:admission_id:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[primary_diagnosis]' derivation='None' name='[none:primary_diagnosis:nk]' pivot='key' type='nominal' />
+        <column caption='Primary Diagnosis' datatype='string' name='[primary_diagnosis]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='48904' id='7' param='horz' type-v2='layout-flow' w='99000' x='500' y='1096'>
+            <zone h='48904' id='5' type-v2='layout-basic' w='89000' x='500' y='1096'>
+              <zone h='48904' id='3' name='Sheet 1' show-title='false' w='35688' x='500' y='1096'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='48904' id='9' name='Sheet 2' show-title='false' w='53312' x='36188' y='1096'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='48904' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='10000' x='89500' y='1096'>
+              <zone h='9780' id='8' name='Sheet 1' pane-specification-id='1' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[:Measure Names]' type-v2='color' w='10000' x='89500' y='1096'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9780' id='10' name='Sheet 2' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='10000' x='89500' y='10876'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9780' id='11' name='Sheet 2' pane-specification-id='0' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' type-v2='color' w='10000' x='89500' y='20656'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9780' id='13' name='Sheet 3' pane-specification-id='0' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:insurance_type:nk]' type-v2='color' w='10000' x='89500' y='30436'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9784' id='14' name='Sheet 2' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]' type-v2='filter' values='database' w='10000' x='89500' y='40216'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='48904' id='12' name='Sheet 3' show-title='false' w='99000' x='500' y='50000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1200' minheight='1200' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='16' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97808' id='15' param='vert' type-v2='layout-flow' w='99000' x='500' y='1096'>
+                <zone fixed-size='280' h='97808' id='3' is-fixed='true' name='Sheet 1' show-title='false' w='35688' x='500' y='1096'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='11507' id='8' name='Sheet 1' pane-specification-id='1' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[:Measure Names]' type-v2='color' w='10000' x='89500' y='1096'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10548' id='10' name='Sheet 2' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='10000' x='89500' y='12603'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='49725' id='14' mode='checkdropdown' name='Sheet 2' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:primary_diagnosis:nk]' type-v2='filter' values='database' w='10000' x='89500' y='49179'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='97808' id='9' is-fixed='true' name='Sheet 2' show-title='false' w='30437' x='36188' y='1096'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='11096' id='11' name='Sheet 2' pane-specification-id='0' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' type-v2='color' w='10000' x='89500' y='23151'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='97808' id='12' is-fixed='true' name='Sheet 3' show-title='false' w='22875' x='66625' y='1096'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='14932' id='13' name='Sheet 3' pane-specification-id='0' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:insurance_type:nk]' type-v2='color' w='10000' x='89500' y='34247'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{1CB5EC16-123C-4EA3-AFCA-12D46303F2FC}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.5' source-height='44'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{B4D9F44C-8C58-4AEC-B6F7-8E7DC77FD043}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card pane-specification-id='0' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[cnt:admission_id:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{72F22DDC-EB52-4574-B7AF-4C9C69234A1A}' />
+    </window>
+    <window class='worksheet' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1kqkrlk09gvj2y11hmyfy1hyiz6v].[none:insurance_type:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{2936C7D2-2725-41AA-91FB-F1E0F2B3B42C}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Sheet 1'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 2'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 3'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='12' />
+      <simple-id uuid='{D4F89BE6-86BB-4C8B-B64F-B35E3F0B5CDE}' />
+    </window>
+  </windows>
+</workbook>
